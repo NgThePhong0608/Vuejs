@@ -53,7 +53,6 @@
 <script>
 import FirstHeader from "../Header/FirstHeader.vue";
 // imp
-import { mapGetters } from "vuex";
 export default {
 	name: "Login",
 	components: {
@@ -95,6 +94,7 @@ export default {
 	methods: {
 		handleLogin() {
 			// console.log(this.loginForm);
+			console.log("success");
 			this.$store
 				.dispatch("auth/getLogin", { ...this.loginForm })
 				.then(() => {

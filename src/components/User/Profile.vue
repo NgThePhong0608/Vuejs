@@ -1,31 +1,29 @@
 <template>
 	<div>
-		<Header> </Header>
+		<Header></Header>
 		<div class="greeting">Hello: {{ title }}</div>
 		<el-row :gutter="20">
 			<el-col :span="6" :offset="8">
-				<div>
-					<el-form
-						label-position="right"
-						label-width="100px"
-						:model="userProfile"
-						size="mini"
-					>
-						<el-form-item label="User Id :">
-							<span>{{ userProfile.id }}</span>
-						</el-form-item>
-						<el-form-item label="User Name :">
-							<span>
-								{{ userProfile.name }}
-							</span>
-						</el-form-item>
-						<el-form-item label="User Email :">
-							<span>
-								{{ userProfile.email }}
-							</span>
-						</el-form-item>
-					</el-form>
-				</div>
+				<el-form
+					label-position="right"
+					label-width="100px"
+					:model="userProfile"
+					size="mini"
+				>
+					<el-form-item label="User Id :">
+						<span>{{ userProfile.id }}</span>
+					</el-form-item>
+					<el-form-item label="User Name :">
+						<span>
+							{{ userProfile.name }}
+						</span>
+					</el-form-item>
+					<el-form-item label="User Email :">
+						<span>
+							{{ userProfile.email }}
+						</span>
+					</el-form-item>
+				</el-form>
 			</el-col>
 		</el-row>
 	</div>
@@ -45,13 +43,8 @@ export default {
 
 	data() {
 		return {
-			shouldUpdate: false,
-			userProfile: "",
+			userProfile: {},
 			title: "",
-			params: {
-				emailUpdate: "",
-				nameUpdate: "",
-			},
 		};
 	},
 	components: {
@@ -69,9 +62,11 @@ export default {
 	font-size: 30px;
 	font-weight: 200;
 }
+
 .el-row {
 	margin-top: 1rem;
 }
+
 .uid {
 	border: none !important;
 	max-width: 50%;

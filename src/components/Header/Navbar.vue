@@ -60,11 +60,11 @@
 					</div>
 				</el-dropdown-item>
 
-				<!-- <el-dropdown-item>
-					<div @click="handleChangePassword">
+				<el-dropdown-item>
+					<div @click="handleDetailsContact">
 						{{ dropDownTitle.title[2] }}
 					</div>
-				</el-dropdown-item> -->
+				</el-dropdown-item>
 			</el-dropdown-menu>
 		</el-dropdown>
 	</el-menu>
@@ -79,7 +79,7 @@ export default {
 				title: ["Home", "Category", "News", "About", "Contact"],
 			},
 			dropDownTitle: {
-				title: ["Profile", "Logout", "Change Password"],
+				title: ["Profile", "Logout", "Details Contact"],
 			},
 		};
 	},
@@ -106,6 +106,9 @@ export default {
 		},
 		handleNavigateCategory(id) {
 			this.$router.push(`/news/list-news-category/${id}`);
+		},
+		handleDetailsContact() {
+			this.$router.push("/contactList");
 		},
 	},
 };

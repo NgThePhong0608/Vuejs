@@ -6,7 +6,7 @@ export const authHeaders = (headers = {}) => {
 	return token ? { Authorization: token, ...headers } : { ...headers };
 };
 
-export const getProfile = function () {
+export const getProfile = () => {
 	return (
 		localStorage.getItem("master_user") &&
 		JSON.parse(localStorage.getItem("master_user"))?.auth?.user?.profile
@@ -14,6 +14,7 @@ export const getProfile = function () {
 };
 
 export const isLoggedIn = () => {
+	// console.log('is lg in',!!localStorage.getItem('master_user')&& !!JSON.parse(localStorage.getItem('master_user'))?.auth?.user?.token )
 	return (
 		!!localStorage.getItem("master_user") &&
 		!!JSON.parse(localStorage.getItem("master_user"))?.auth?.user?.token

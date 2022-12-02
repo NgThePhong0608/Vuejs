@@ -75,13 +75,13 @@ const routes = [
 	{
 		path: "/contactList",
 		component: ContactList,
-		meta: { title: "Contact | CodLUCK" },
+		meta: { title: "Contact List | CodLUCK" },
 	},
 	{
 		path: "/contactList/:id",
 		name: "contact",
 		component: ContactList,
-		meta: { title: "Contact | CodLUCK" },
+		meta: { title: "Contact List | CodLUCK" },
 	},
 	{
 		path: "/contactForm",

@@ -19,11 +19,11 @@
 					</el-table-column>
 					<el-table-column align="right">
 						<template #header>
-							<!-- <el-input
+							<el-input
 								v-model="search"
 								size="small"
 								placeholder="Type to search"
-							/> -->
+							/>
 						</template>
 						<template #default="scope">
 							<el-button
@@ -81,6 +81,7 @@ export default {
 				title: "",
 				image: "",
 			},
+			search: "",
 		};
 	},
 
@@ -113,9 +114,9 @@ export default {
 				});
 		},
 
-		postNew(...dataNew) {
+		postNew(dataNew) {
 			newsService
-				.create(...dataNew)
+				.create(dataNew)
 				.then((res) => {
 					console.log(res);
 					this.getNew();
@@ -146,17 +147,23 @@ export default {
 				});
 		},
 
-		deleteNew(id) {
-			if (confirm("Bạn muốn xóa dòng này?")) {
-				newsService
-					.delete(id)
-					.then((res) => {
-						this.getNew();
-						console.log(res);
-					})
-					.catch((err) => {
-						console.log(err);
-					});
+		findByID(id) {
+			this.search = id;
+			return this.news.find((news) => news.id === id);
+		},
+
+		findByName(name) {
+			this.search = name;
+			return this.news.find((news) => news.name === name);
+		},
+		async deleteNews(id) {
+			if (confirm("Are you sure you want to delete this news?")) {
+				try {
+					const response = await newsService.delete(id);
+					this.getNew();
+				} catch (error) {
+					console.log(error);
+				}
 			}
 		},
 

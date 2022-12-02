@@ -37,9 +37,7 @@
 			</el-form>
 			<template #footer>
 				<span class="dialog-footer">
-					<el-button @click="dialogFormVisible = !dialogFormVisible"
-						>Cancel</el-button
-					>
+					<el-button @click="show">Cancel</el-button>
 					<el-button type="primary" @click="submit"
 						>Confirm</el-button
 					>
@@ -70,7 +68,7 @@ export default {
 	},
 	methods: {
 		show() {
-			this.dialogFormVisible = true;
+			this.dialogFormVisible != this.dialogFormVisible;
 		},
 		onFileSelected(e) {
 			this.dataUpdate.image = e.target.files[0];

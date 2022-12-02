@@ -95,7 +95,7 @@ export default {
 				});
 		},
 		async deleteCategory(id) {
-			if (confirm("Bạn muốn xóa dòng này?")) {
+			if (confirm("Are you sure you want to delete this category?")) {
 				try {
 					const response = await categoryService.delete(id);
 					this.msg = response.msg;

@@ -83,9 +83,6 @@ export default {
 		};
 	},
 	methods: {
-		handlePushDetail() {
-			this.$router.push("/contactList");
-		},
 		submitForm(formName) {
 			if (!isEmail(this.contactForm.email)) {
 				this.$notify.error({
@@ -113,7 +110,7 @@ export default {
 							type: "success",
 						}),
 							contactService.getList();
-						this.$router.push("/contactlist");
+						this.$router.push("/home");
 					});
 				} else {
 					console.log("error submit!!");
